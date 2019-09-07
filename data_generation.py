@@ -30,10 +30,8 @@ X2 = 2000
 
 random_obs = np.random.randint(1, 7, X1)
 
-contracts = [
-    [np.random.binomial(1, j) for i,j in enumerate(get_probas()]
-    for i in range(X1)
-]
+contracts = [[np.random.binomial(1, j) for i, j in enumerate(get_probas())]
+             for i in range(X1)]
 
 risks = pd.DataFrame(contracts)
 clauses = pd.DataFrame(contracts)
@@ -43,8 +41,9 @@ contracts_df.columns = get_risks_from_concepts(
     get_concepts()) + get_clauses_from_concepts(get_concepts())
 
 bad_contracts = [
-    np.random.binomial(1, 0.5, size=len(get_concepts())).tolist() +
-    [0, 0, 0, 0, 0, 0] for i in range(X2)
+    [np.random.binomial(1, j)
+     for i, j in enumerate(get_probas())] + [0, 0, 0, 0, 0, 0]
+    for i in range(X2)
 ]
 
 bad_contracts_df = pd.DataFrame(bad_contracts, columns=contracts_df.columns)
