@@ -1,0 +1,30 @@
+define
+
+contract sub entity,
+  has contractID,
+  plays contract-has;
+
+risk-factor sub entity,
+  key risk-factor-name,
+  plays contract-risk-factor;
+
+risk-mitigation-clause sub entity,
+  key risk-factor-name,
+  plays contract-mitigation-clause;
+
+contract-risk sub relation,
+  relates contract-has,
+  relates contract-risk-factor;
+
+contract-mitigation sub relation,
+  relates contract-has,
+  relates contract-mitigation-clause;
+
+similair-contracts sub relation,
+  relates contract-has,
+  relates contract-has;
+
+
+contractID sub attribute, datatype string;
+risk-factor-name sub attribute, datatype string;
+

@@ -1,0 +1,1 @@
+match $s (contract-has: $c1, contract-has: $c2) isa similair-contracts; $rfr (contract-has: $c1, contract-risk-factor: $rf) isa contract-risk; $rf has risk-factor-name $rfn; $c1 has contractID "2" get; offset 0; limit 30;

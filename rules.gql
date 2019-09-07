@@ -1,0 +1,2 @@
+
+define similair-contracts sub rule, when { (contract-has: $c1, contract-risk-factor: $rf) isa contract-risk; (contract-has: $c2, contract-risk-factor: $rf) isa contract-risk; $c1 != $c2}, then { (contract-has: $c1, contract-has: $c2) isa similair-contracts;}
